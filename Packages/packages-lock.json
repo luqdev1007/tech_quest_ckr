@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "e5acc106ee196bc5a32fb14cdf2987b0f96d11e0"
     },
+    "com.neuecc.unirx": {
+      "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6baeccf6c544c155497164327cca72f28163a578"
+    },
     "com.unity.collab-proxy": {
       "version": "2.12.4",
       "depth": 0,
