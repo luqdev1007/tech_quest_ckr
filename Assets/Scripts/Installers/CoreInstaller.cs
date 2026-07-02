@@ -1,5 +1,7 @@
+using TestTask.Core.Audio;
 using TestTask.Core.Network;
 using TestTask.Core.Tabs;
+using UnityEngine;
 using Zenject;
 
 namespace TestTask.Installers
@@ -10,6 +12,14 @@ namespace TestTask.Installers
         {
             Container.BindInterfacesAndSelfTo<RequestQueue>().AsSingle();
             Container.BindInterfacesAndSelfTo<TabsService>().AsSingle();
+
+            Container.Bind<AudioSource>()
+                .FromNewComponentOnNewGameObject()
+                .WithGameObjectName("SoundServiceAudioSource")
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<SoundService>().AsSingle();
         }
     }
 }

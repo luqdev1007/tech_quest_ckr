@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d0ca662224ce4d8ac902615f395d3, type: 3}
+  m_Name: ClickerVfxConfig
+  m_EditorClassIdentifier: 
+  _flyingDistance: 150
+  _flyingDuration: 1
+  _flyingEase: 6
+  _flyingHorizontalSpread: 40
+  _flyingStartScale: 0.6
+  _buttonPunchStrength: {x: 0.15, y: 0.15, z: 0}
+  _buttonPunchDuration: 0.25
+  _buttonPunchVibrato: 8
+  _buttonPunchElasticity: 0.8
+  _clickClip: {fileID: 8300000, guid: c1944eed2f0c356419d40ce142f5e60c, type: 3}
+  _volume: 1
+  _pitchMin: 0.9
+  _pitchMax: 1.25
