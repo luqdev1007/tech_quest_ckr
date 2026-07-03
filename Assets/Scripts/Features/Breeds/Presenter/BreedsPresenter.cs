@@ -72,8 +72,8 @@ namespace TestTask.Features.Breeds
 
         private void OnLeave()
         {
-            CancelList();
-            CancelDetails();
+            CancelActiveRequests();
+            HideActiveSpinner();
             _view.SetListLoading(false);
             _popup.Hide();
         }
@@ -126,7 +126,8 @@ namespace TestTask.Features.Breeds
 
         private void OnRowClicked(string id, BreedRowView row)
         {
-            CancelDetails();
+            CancelDetailsHandle();
+            HideActiveSpinner();
 
             row.ShowSpinner();
             _activeSpinnerRow = row;
@@ -182,7 +183,13 @@ namespace TestTask.Features.Breeds
             _rows.Clear();
         }
 
-        private void CancelList()
+        private void CancelActiveRequests()
+        {
+            CancelListHandle();
+            CancelDetailsHandle();
+        }
+
+        private void CancelListHandle()
         {
             if (_listHandle == null)
                 return;
@@ -191,25 +198,28 @@ namespace TestTask.Features.Breeds
             _listHandle = null;
         }
 
-        private void CancelDetails()
+        private void CancelDetailsHandle()
         {
             if (_detailsHandle == null)
                 return;
 
             _detailsHandle.Cancel();
             _detailsHandle = null;
+        }
 
-            if (_activeSpinnerRow != null)
-            {
-                _activeSpinnerRow.HideSpinner();
-                _activeSpinnerRow = null;
-            }
+        private void HideActiveSpinner()
+        {
+            if (_activeSpinnerRow == null)
+                return;
+
+            _activeSpinnerRow.HideSpinner();
+            _activeSpinnerRow = null;
         }
 
         public void Dispose()
         {
-            OnLeave();
-            ClearRows();
+            CancelActiveRequests();
+            _rowsDisposable.Dispose();
             _disposables.Dispose();
         }
     }
