@@ -104,7 +104,6 @@ namespace TestTask.Features.Weather
                 ["Accept"] = "application/geo+json"
             };
 
-            // JsonGetRequest уже покрывает url+заголовки+JSON, отдельный класс запроса не нужен
             _forecastHandle = _requestQueue.Enqueue(new JsonGetRequest<WeatherForecastResponse>(_config.ForecastUrl, forecastHeaders));
 
             WeatherForecastResponse response;
@@ -130,7 +129,7 @@ namespace TestTask.Features.Weather
             }
 
             var period = periods[0];
-            _view.SetForecast($"Сегодня - {period.Temperature}{period.TemperatureUnit}");
+            _view.SetForecast($"Today: {period.Temperature}{period.TemperatureUnit}");
 
             if (string.IsNullOrEmpty(period.Icon))
             {
