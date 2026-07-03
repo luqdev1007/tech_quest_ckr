@@ -27,7 +27,7 @@ namespace TestTask.Core.Network
                     request.SetRequestHeader(header.Key, header.Value);
             }
 
-            await request.SendWebRequest().WithCancellation(ct);
+            await request.SendWebRequest().ToUniTask(cancellationToken: ct, cancelImmediately: true);
 
             if (request.result != UnityWebRequest.Result.Success)
                 throw new WebRequestException($"GET {_url} failed: {request.error}", request.responseCode);
