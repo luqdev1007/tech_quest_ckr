@@ -15,3 +15,4 @@ MonoBehaviour:
   _clickerConfig: {fileID: 11400000, guid: c29be1a0e5fa8d040b43be4519205e80, type: 2}
   _clickerVfxConfig: {fileID: 11400000, guid: daba852404b35f548bdbb3834765e0d0, type: 2}
   _weatherConfig: {fileID: 11400000, guid: f8945e096e65f37428476c8c0e77b631, type: 2}
+  _breedsConfig: {fileID: 11400000, guid: 2eab60266cc59944f82fd66b0759f299, type: 2}

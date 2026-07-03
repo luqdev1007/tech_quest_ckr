@@ -10,12 +10,14 @@ namespace TestTask.Installers
         [SerializeField] private ClickerConfig _clickerConfig;
         [SerializeField] private ClickerVfxConfig _clickerVfxConfig;
         [SerializeField] private WeatherConfig _weatherConfig;
+        [SerializeField] private BreedsConfig _breedsConfig;
 
         public override void InstallBindings()
         {
             Container.BindInstance(_clickerConfig).AsSingle();
             Container.BindInstance(_clickerVfxConfig).AsSingle();
             Container.BindInstance(_weatherConfig).AsSingle();
+            Container.BindInstance(_breedsConfig).AsSingle();
         }
     }
 }
