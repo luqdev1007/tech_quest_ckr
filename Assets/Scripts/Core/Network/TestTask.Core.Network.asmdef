@@ -1,0 +1,17 @@
+{
+    "name": "TestTask.Core.Network",
+    "rootNamespace": "TestTask.Core.Network",
+    "references": [
+        "UniTask",
+        "Zenject"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
