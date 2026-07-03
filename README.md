@@ -97,4 +97,4 @@ Assets/Scripts/
 | Переклик отменяет предыдущий запрос деталей | `BreedsPresenter` |
 | Уход с вкладки отменяет всё | `BreedsPresenter` |
 | Общий попап с адаптивной высотой | `PopupView` (ContentSizeFitter + VerticalLayoutGroup) |
-| Адаптивный UI под разные разрешения | Canvas Scaler (Scale With Screen Size) |
+| Адаптивный UI под разные разрешения | Canvas Scaler (Scale With Screen Size) + anchors + layout group components |
