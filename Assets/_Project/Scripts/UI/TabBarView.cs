@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestTask.Core.Tabs;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,19 @@ namespace TestTask.UI
         public void SetActiveTab(TabType active)
         {
             foreach (var entry in _tabButtons)
-                entry.Highlight.SetActive(entry.Type == active);
+            {
+                bool isActive = entry.Type == active;
+                entry.Highlight.SetActive(isActive);
+
+                // костыль
+                var buttonText = entry.Button.GetComponentInChildren<TextMeshProUGUI>();
+                if (buttonText != null)
+                {
+                    buttonText.color = isActive
+                        ? new Color32(0xFF, 0xBC, 0x12, 0xFF) 
+                        : Color.white;                   
+                }
+            }
         }
     }
 }
