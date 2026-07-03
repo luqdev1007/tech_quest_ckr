@@ -13,6 +13,7 @@ namespace TestTask.Installers
         [SerializeField] private ClickerView _clickerView;
         [SerializeField] private WeatherView _weatherView;
         [SerializeField] private BreedsView _breedsView;
+        [SerializeField] private Transform _goldTextTransform;
 
         public override void InstallBindings()
         {
@@ -23,6 +24,10 @@ namespace TestTask.Installers
             Container.Bind<ITabView>().FromInstance(_breedsView).AsCached();
 
             Container.BindInterfacesAndSelfTo<TabsPresenter>().AsSingle();
+
+            Container.Bind<Transform>()
+            .WithId("GoldVfxTarget")
+            .FromInstance(_goldTextTransform);
         }
     }
 }

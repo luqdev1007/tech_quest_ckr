@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98d0ca662224ce4d8ac902615f395d3, type: 3}
   m_Name: ClickerVfxConfig
   m_EditorClassIdentifier: 
-  _flyingDistance: 150
-  _flyingDuration: 1
+  _flyingDistance: 25
+  _flyingDuration: 0.75
   _flyingEase: 6
-  _flyingHorizontalSpread: 40
-  _flyingStartScale: 0.6
+  _flyingHorizontalSpread: 12
+  _flyingStartScale: 0.5
   _buttonPunchStrength: {x: 0.15, y: 0.15, z: 0}
   _buttonPunchDuration: 0.25
   _buttonPunchVibrato: 8

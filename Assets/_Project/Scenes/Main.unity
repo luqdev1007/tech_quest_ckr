@@ -2910,6 +2910,7 @@ MonoBehaviour:
   _clickerView: {fileID: 1437634101}
   _weatherView: {fileID: 1013599087}
   _breedsView: {fileID: 282878940}
+  _goldTextTransform: {fileID: 1766263663}
 --- !u!114 &1369515905
 MonoBehaviour:
   m_ObjectHideFlags: 0
