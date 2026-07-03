@@ -51,7 +51,6 @@ namespace TestTask.Core.Network
                         }
                         catch (OperationCanceledException)
                         {
-                            // позже
                         }
                     }
 
