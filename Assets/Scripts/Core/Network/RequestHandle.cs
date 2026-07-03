@@ -31,6 +31,7 @@ namespace TestTask.Core.Network
             }
 
             _started = true;
+            Debug.Log($"[RequestQueue] executing {typeof(T).Name}");
             using var linked = CancellationTokenSource.CreateLinkedTokenSource(_cts.Token, workerCt);
             try
             {
@@ -55,6 +56,11 @@ namespace TestTask.Core.Network
         {
             if (_finished)
                 return;
+
+            if (_started)
+                Debug.Log($"[RequestQueue] aborting in-flight {typeof(T).Name}");
+            else
+                Debug.Log($"[RequestQueue] removed from queue (was pending) {typeof(T).Name}");
 
             _cts.Cancel();
 

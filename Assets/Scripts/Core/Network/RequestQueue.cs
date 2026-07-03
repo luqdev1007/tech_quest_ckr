@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using Zenject;
 
 namespace TestTask.Core.Network
@@ -28,6 +29,7 @@ namespace TestTask.Core.Network
 
             var handle = new RequestHandle<T>(request);
             _items.Enqueue(handle);
+            Debug.Log($"[RequestQueue] enqueued {typeof(T).Name}");
             WakeWorker();
             return handle;
         }

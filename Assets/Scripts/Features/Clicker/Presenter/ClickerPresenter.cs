@@ -1,9 +1,9 @@
 using System;
 using TestTask.Configs;
 using TestTask.Core.Audio;
+using TestTask.Core.Tabs;
 using TestTask.Features.Clicker.Vfx;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace TestTask.Features.Clicker
@@ -19,7 +19,10 @@ namespace TestTask.Features.Clicker
         private readonly ISoundService _soundService;
         private readonly FlyingCurrencyPool _flyingCurrencyPool;
         private readonly ClickerBurstPool _burstPool;
+        private readonly ITabsService _tabsService;
         private readonly CompositeDisposable _disposables = new CompositeDisposable();
+
+        private bool _isActive;
 
         public ClickerPresenter(
             ClickerView view,
@@ -30,7 +33,8 @@ namespace TestTask.Features.Clicker
             ClickerVfxConfig vfxConfig,
             ISoundService soundService,
             FlyingCurrencyPool flyingCurrencyPool,
-            ClickerBurstPool burstPool)
+            ClickerBurstPool burstPool,
+            ITabsService tabsService)
         {
             _view = view;
             _clickerService = clickerService;
@@ -41,6 +45,7 @@ namespace TestTask.Features.Clicker
             _soundService = soundService;
             _flyingCurrencyPool = flyingCurrencyPool;
             _burstPool = burstPool;
+            _tabsService = tabsService;
         }
 
         public void Initialize()
@@ -57,8 +62,16 @@ namespace TestTask.Features.Clicker
                 .Subscribe(_ => _clickerService.TryClick())
                 .AddTo(_disposables);
 
+            _tabsService.Active
+                .Subscribe(tab => _isActive = tab == TabType.Clicker)
+                .AddTo(_disposables);
+
             _clickerService.ClickPerformed
-                .Subscribe(_ => PlayFeedback())
+                .Subscribe(_ =>
+                {
+                    if (_isActive)
+                        PlayFeedback();
+                })
                 .AddTo(_disposables);
         }
 
